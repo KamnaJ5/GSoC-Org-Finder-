@@ -725,6 +725,9 @@ function renderGrid(orgs){
       <span class="gh-s">⭐ <b>${fmt(o._gh.stars)}</b></span>
       <span class="gh-s">🍴 <b>${fmt(o._gh.forks)}</b></span>
       ${renderGfiBadge(o._gh)}
+${renderTechBadge(o)}
+
+
       <span class="gh-s">🕐 <b>${escapeHtml(String(o._gh.lastCommit))}</b></span>
     </div>`:'';
     const globalIdx=ORGS.indexOf(o);
