@@ -2039,6 +2039,13 @@
           <div class="flex items-center gap-2">
             <span class="bg-primary/10 text-primary text-[10px] font-label uppercase tracking-widest px-2 py-1 rounded-full font-bold">${escapeHtml(String(org.years))}y Veteran</span>
             <span class="complexity-badge ${escapeHtml(org.codebase)}">${escapeHtml(org.codebase)}</span>
+            <div class="flex flex-wrap gap-2 mt-3">
+  ${(org.tags || []).slice(0, 4).map(tag => `
+    <span class="px-2 py-1 text-xs rounded-full bg-zinc-100 text-zinc-700 border border-zinc-200">
+      ${escapeHtml(tag)}
+    </span>
+  `).join('')}
+</div>
             <button class="bookmark-btn ${isBookmarked ? 'active' : 'text-zinc-300'}" data-bookmark-org="${escapeHtml(org.name)}" title="${isBookmarked ? 'Remove bookmark' : 'Add bookmark'}">
               <span class="material-symbols-outlined text-lg ${isBookmarked ? 'icon-fill' : ''}">star</span>
             </button>
