@@ -703,6 +703,13 @@ function renderTechBadge(org){
   return `<span class="gh-s">💻 <b>${escapeHtml(tech)}</b></span>`;
 }
 function renderGfiBadge(gh){
+  function renderTechBadge(org){
+    if(!org.tags || !org.tags.length) return '';
+    
+    const tech = org.tags.slice(0,3).join(', ');
+    
+    return `<span class="gh-s">💻 <b>${escapeHtml(tech)}</b></span>`;
+}
   if(gh?.gfi===null||gh?.gfi===undefined)return '';
   return `<span class="gh-s">🟢 <b>${escapeHtml(fmt(gh.gfi))} GFI</b></span>`;
 }
@@ -725,9 +732,13 @@ function renderGrid(orgs){
       <span class="gh-s">⭐ <b>${fmt(o._gh.stars)}</b></span>
       <span class="gh-s">🍴 <b>${fmt(o._gh.forks)}</b></span>
       ${renderGfiBadge(o._gh)}
+<<<<<<< HEAD
 ${renderTechBadge(o)}
 
 
+=======
+      ${renderTechBadge(o)}
+>>>>>>> 46bd12daac674622b20fd385374e5db43929219c
       <span class="gh-s">🕐 <b>${escapeHtml(String(o._gh.lastCommit))}</b></span>
     </div>`:'';
     const globalIdx=ORGS.indexOf(o);
